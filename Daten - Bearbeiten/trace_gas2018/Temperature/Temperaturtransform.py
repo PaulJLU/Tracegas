@@ -25,11 +25,11 @@ W2       =['16:23' ,'17:03', 1, None, None]
 
 
 '''Voodoo'''
-print 'Load Temperature data for '+Datum
+print ('Load Temperature data for '+Datum)
 Transekte    =[A1,A2,A3,G1,G2,W1,W2,W3]#Combine Transects
 Transektnames=['A1','A2','A3','G1','G2','W1','W2','W3']
 for i in range(len(Transekte)):#run through Transects
-    print 'Calculate mean for '+Transektnames[i]
+    print ('Calculate mean for '+Transektnames[i])
     if Transekte[i][2]==1:#Get Sensorset filenames
         Filenames=[Datum+'_S1.xls',Datum+'_S2.xls',Datum+'_S3.xls',Datum+'_S4.xls',Datum+'_S5.xls']
     if Transekte[i][2]==2:
@@ -48,8 +48,8 @@ for i in range(len(Transekte)):#run through Transects
     Transekte[i][4]=np.std(stdForChamber)#Calulate std for Transect
 
 df1=pd.DataFrame(data=Transekte,index=Transektnames,columns=Order)
-print 'Save file in '+Datum+'meanTemp.xls'
+print ('Save file in '+Datum+'meanTemp.xls')
 df1.to_excel(Datum+'meanTemp.xls')
-print 'Done'
+print ('Done')
 
 
